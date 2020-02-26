@@ -10,56 +10,60 @@ Write your code in this editor and press "Run" button to compile and execute it.
 #include <stdlib.h>
 #include <stdbool.h>
 #include <ctype.h>
-
-void takeinput(int rounds,int height,int width);
-void proccessinput();
-void recurmap();
+#include <string.h>
 
 #define ROUND_MAX 32000
 #define HW_MAX 16000
+
+void takeinput(int rounds,int height,int width, int matrix[]);
+
+void proccessinput();
+void recurmap();
+
+
 int main()
 {
     int iteration = 0;
     int rounds = 0;
     int height;
     int width;
-    takeinput(rounds,height,width);
+   
+    int matrix[200];
+    takeinput(rounds,height,width, matrix);
 	while (iteration < rounds)
 	{
         recurmap();
 	}
 }
 
-void takeinput(int rounds,int height,int width)
+void takeinput(int rounds,int height,int width, int matrix[])
 {
-    //Take # of rounds
-    printf ("enter rounds: ");
-    scanf("%d", &rounds);
-    //printf ("%d", rounds);
-    //scanf("%s", &temprounds);
-    //while not num or is > 32000: error, take #of rounds
-    //printf ("%d", rounds - '0');
-    while (rounds < 1 || rounds > ROUND_MAX)
-    {
-        getchar();
-        printf ("enter rounds: ");
-        scanf(" %d", &rounds);
-        //printf ("%d", rounds);
-    }
-
-    //Take height and width
-    printf ("enter height and width: ");
+    //int matrix[HW_MAX][HW_MAX] = {0}
+    printf ("here");
     char temp[200];
-    scanf(" %[^\n]s", temp);
-    printf ("%s",temp);
-    //while not number or is > 16000 or height!= width: error, take #of height and
-
-            //width
-			//Else
-				//Take input until the height num enter
-				//while !Process matrix()
-					//Take matrix again
-				//Return
+    scanf(" %200s", temp);
+    printf ("%ld\n",strlen(temp));
+    printf ("%s\n",temp);
+    char delim[] = "\n";
+    char *token;
+    
+    /* get the first token */
+    token = strtok(temp, delim);
+   
+    char temp2[200];
+    int index = 0;
+    /* walk through other tokens */
+    while( token != NULL )
+    {
+        //temp2[index] = *token;
+        printf( " %s\n", token);
+        token = strtok(NULL, delim);
+    }
+    //for (int i = 0; i < strlen(temp); i++)
+    //{
+        //printf( " %c\n", temp[i]);
+    //}
+    
 
 }
 
